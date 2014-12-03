@@ -3,9 +3,9 @@ using System.Collections;
 
 public class InstrumentScript : MonoBehaviour {
 
-	public bool active = false;
-	public float volume = 1.0f;
+	public bool active = true;
 	public AudioSource source;
+	public float volume = 1.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,12 @@ public class InstrumentScript : MonoBehaviour {
 	void Update () {
 		if (source == null)
 			return;
+
+		if(volume > 0)
+			volume -= Time.deltaTime*0.05f;
+
+		if (Input.GetKeyDown(KeyCode.Space))
+			volume = 1;
 
 		source.volume = volume;
 
