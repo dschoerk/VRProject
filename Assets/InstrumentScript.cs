@@ -17,7 +17,7 @@ public class InstrumentScript : MonoBehaviour {
 		if (source == null)
 			return;
 
-		volume = source.volume;
+		source.volume = volume;
 
 		if (active && !source.isPlaying) 
 			source.Play();
