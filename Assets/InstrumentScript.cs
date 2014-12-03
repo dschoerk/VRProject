@@ -4,16 +4,20 @@ using System.Collections;
 public class InstrumentScript : MonoBehaviour {
 
 	public bool active = false;
+	public float volume = 1.0f;
 	public AudioSource source;
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (source == null)
 			return;
+
+		volume = source.volume;
 
 		if (active && !source.isPlaying) 
 			source.Play();
